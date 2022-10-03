@@ -1,10 +1,26 @@
 {
   "name": "ts-object-fns",
   "version": "0.1.0",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
-    "build": "del-cli dist && tsc"
+    "build": "run-s build:prep build:esm build:cjs",
+    "build:prep": "del-cli dist",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "del-cli": "5.0.0"
+    "del-cli": "5.0.0",
+    "npm-run-all": "4.1.5",
+    "typescript": "4.8.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:thomasraydeniscool/ts-object-fns.git"
   }
 }

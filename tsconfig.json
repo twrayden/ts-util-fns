@@ -12,9 +12,9 @@
     "noUnusedParameters": true, // Report errors on unused parameters in functions
 
     // Project specific
-    "outDir": "dist",
     "rootDir": "src", // This folder should contain all source files found by 'include' globs
-    "declaration": true
+    "target": "ES2015",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
