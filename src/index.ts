@@ -26,8 +26,8 @@ export const omitKey = <T extends object>(
   return result;
 };
 
-export function hasKeys<T extends object>(obj: T, keys: string[]): boolean {
+export const hasKeys = <T extends object>(obj: T, keys: string[]): boolean => {
   return (
     keys.map((key) => Object.keys(obj).indexOf(key) !== -1).indexOf(true) !== -1
   );
-}
+};
