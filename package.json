@@ -1,0 +1,10 @@
+{
+  "name": "ts-object-fns",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "del-cli dist && tsc"
+  },
+  "devDependencies": {
+    "del-cli": "5.0.0"
+  }
+}
