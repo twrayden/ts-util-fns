@@ -1,1 +1,1 @@
-# object-utils
+ts-object-fns
