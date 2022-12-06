@@ -46,3 +46,7 @@ camelCase("test string");
 camelCase("test string");
 //=> "testString"
 ```
+
+## Related
+
+- [ts-array-fns](https://github.com/thomasraydeniscool/ts-array-fns) - Typesafe array utility functions
