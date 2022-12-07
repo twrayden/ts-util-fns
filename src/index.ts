@@ -29,7 +29,7 @@ export const visit = <T extends object>(obj: T, map: VisitMap<T>): void =>
 export const trim = <T extends object>(obj: T): T => {
   const result = { ...obj };
   for (var prop in result) {
-    if (Object.hasOwnProperty.call(result, prop) && result[prop] == null) {
+    if (Object.hasOwnProperty.call(result, prop) && result[prop] === undefined) {
       delete result[prop];
     }
   }
