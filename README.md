@@ -41,7 +41,14 @@ visit(myObj, {
 ```typescript
 import { trim } from "ts-object-fns";
 
-const myObj = {
+interface MyObj {
+  hello: string;
+  marco: string;
+  messy?: string;
+  data: Buffer | null;
+}
+
+const myObj: MyObj = {
   hello: "world",
   marco: "polo",
   messy: undefined,
