@@ -38,10 +38,10 @@ export const trim = <T extends object>(obj: T): T => {
 
 /**
  * @name isEmpty
- * @summary Is the target object empty?
+ * @summary Return true if the target object is empty
  *
  * @description
- * Is the target object empty?
+ * Return true if the target object is empty
  *
  * @param obj - the target object
  * @returns target object is empty
@@ -70,10 +70,10 @@ export const omitKey = <T extends object>(
 
 /**
  * @name hasKeys
- * @summary Does the target object contain specified keys?
+ * @summary Return true is the target object contains at least one specified key
  *
  * @description
- * Does the target object contain specified keys?
+ * Return true is the target object contains at least one specified key
  *
  * @param obj - the target object
  * @param keys - the keys to check for existence in target object
