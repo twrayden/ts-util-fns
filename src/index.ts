@@ -14,7 +14,11 @@ export type VisitMap<T extends object> = {
  * @returns void
  */
 export const visit = <T extends object>(obj: T, map: VisitMap<T>): void =>
-  Object.keys(obj).forEach((key) => map[key as keyof T](obj[key as keyof T]));
+  Object.keys(obj).forEach((key) => {
+    const _key = key as keyof T;
+    if (!Object.hasOwnProperty.call(map, _key)) return;
+    map[_key](obj[_key]);
+  });
 
 /**
  * @name trim
@@ -29,7 +33,10 @@ export const visit = <T extends object>(obj: T, map: VisitMap<T>): void =>
 export const trim = <T extends object>(obj: T): T => {
   const result = { ...obj };
   for (var prop in result) {
-    if (Object.hasOwnProperty.call(result, prop) && result[prop] === undefined) {
+    if (
+      Object.hasOwnProperty.call(result, prop) &&
+      result[prop] === undefined
+    ) {
       delete result[prop];
     }
   }
