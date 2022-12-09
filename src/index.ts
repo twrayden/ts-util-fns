@@ -86,8 +86,5 @@ export const omitKey = <T extends object>(
  * @param keys - the keys to check for existence in target object
  * @returns target object contains specified keys
  */
-export const hasKeys = <T extends object>(obj: T, keys: string[]): boolean => {
-  return (
-    keys.map((key) => Object.keys(obj).indexOf(key) !== -1).indexOf(true) !== -1
-  );
-};
+export const hasKeys = <T extends object>(obj: T, keys: string[]): boolean =>
+  keys.map((key) => Object.keys(obj).indexOf(key) !== -1).indexOf(true) !== -1;

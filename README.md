@@ -2,6 +2,12 @@
 
 Type safe object utility functions.
 
+## Install
+
+```sh
+npm install ts-object-fns
+```
+
 ## Usage
 
 These functions come bundled:
