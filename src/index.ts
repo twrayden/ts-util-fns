@@ -1,7 +1,3 @@
-export type VisitMap<T extends object> = {
-  [K in keyof T]-?: (value: T[K]) => void;
-};
-
 /**
  * @name visit
  * @summary Run a function for each key of target object
@@ -13,6 +9,10 @@ export type VisitMap<T extends object> = {
  * @param map - strict object map with a function per key
  * @returns void
  */
+export type VisitMap<T extends object> = {
+  [K in keyof T]-?: (value: T[K]) => void;
+};
+
 export const visit = <T extends object>(obj: T, map: VisitMap<T>): void =>
   Object.keys(obj).forEach((key) => {
     const _key = key as keyof T;
@@ -30,7 +30,11 @@ export const visit = <T extends object>(obj: T, map: VisitMap<T>): void =>
  * @param obj - the target object
  * @returns new object with empty keys omitted
  */
-export const trim = <T extends object>(obj: T): T => {
+export type Trimmed<T extends object> = {
+  [P in keyof T as T[P] extends undefined ? never : P]: T[P];
+};
+
+export const trim = <T extends object>(obj: T): Trimmed<T> => {
   const result = { ...obj };
   for (var prop in result) {
     if (
@@ -40,7 +44,7 @@ export const trim = <T extends object>(obj: T): T => {
       delete result[prop];
     }
   }
-  return result;
+  return result as Trimmed<T>;
 };
 
 /**
