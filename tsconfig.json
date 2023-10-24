@@ -1,20 +1,29 @@
 {
   "compilerOptions": {
-    // Sensible defaults
-    "forceConsistentCasingInFileNames": true, // Raises an error if you include a file with a casing different from the casing on disk
-    "allowUnreachableCode": false, // Raises compiler errors about unreachable code
-    "strictNullChecks": true, // When enabled, null and undefined have their own distinct types
-    "removeComments": true, // Remove comments from output files
-    "noUncheckedIndexedAccess": true, // Must handle possible undefined when using array value
-    "noImplicitReturns": true, // When enabled, TypeScript will check all code paths in a function to ensure they return a value
-    "noUnusedLocals": true, // Report errors on unused local variables
-    "noImplicitAny": true, // TypeScript will issue an error whenever it would have inferred 'any'
-    "noUnusedParameters": true, // Report errors on unused parameters in functions
+    // Raises an error if you include a file with a casing different from the casing on disk
+    "forceConsistentCasingInFileNames": true,
+    // Raises compiler errors about unreachable code
+    "allowUnreachableCode": false,
+    // When enabled, null and undefined have their own distinct types
+    "strictNullChecks": true,
+    // Remove comments from output files
+    "removeComments": true,
+    // Must handle possible undefined when using array value
+    "noUncheckedIndexedAccess": true,
+    // When enabled, TypeScript will check all code paths in a function to ensure they return a value
+    "noImplicitReturns": true,
+    // Report errors on unused local variables
+    "noUnusedLocals": true,
+    // TypeScript will issue an error whenever it would have inferred 'any'
+    "noImplicitAny": true,
+    // Report errors on unused parameters in functions
+    "noUnusedParameters": true,
 
-    // Project specific
-    "rootDir": "src", // This folder should contain all source files found by 'include' globs
-    "target": "ES2015",
-    "moduleResolution": "node"
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "module": "node16",
+    "moduleResolution": "node16"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

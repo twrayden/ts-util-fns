@@ -5,12 +5,12 @@
     "dist"
   ],
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "run-s build:prep build:esm build:cjs",
     "build:prep": "del-cli dist",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:esm": "tsc",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "prepublishOnly": "npm run build"
   },
