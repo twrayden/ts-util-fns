@@ -1,11 +1,11 @@
-# ts-object-fns
+# ts-util-fns
 
-Type safe object utility functions.
+Type safe object & array utility functions.
 
 ## Install
 
 ```sh
-npm install ts-object-fns
+npm install ts-util-fns
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ import { visit } from "ts-object-fns";
 
 const myObj = {
   hello: "world",
-  marco: "polo"
+  marco: "polo",
 };
 
 visit(myObj, {
@@ -36,7 +36,7 @@ visit(myObj, {
   },
   marco(value) {
     console.log(value); // "polo"
-  }
+  },
 });
 ```
 
@@ -58,7 +58,7 @@ const myObj: MyObj = {
   hello: "world",
   marco: "polo",
   messy: undefined,
-  data: null
+  data: null,
 };
 
 trim(myObj); // { hello: "world", marco: "polo", data: null }
@@ -73,7 +73,7 @@ import { omitKey } from "ts-object-fns";
 
 const myObj = {
   hello: "world",
-  marco: "polo"
+  marco: "polo",
 };
 
 omitKey(myObj, "marco"); // { hello: "world" }
@@ -88,7 +88,7 @@ import { isEmpty } from "ts-object-fns";
 
 const myObj = {
   hello: "world",
-  marco: "polo"
+  marco: "polo",
 };
 const emptyObj = {};
 
@@ -105,14 +105,10 @@ import { hasKeys } from "ts-object-fns";
 
 const myObj = {
   hello: "world",
-  marco: "polo"
+  marco: "polo",
 };
 
 hasKeys(myObj, ["hello"]); // true
 hasKeys(myObj, ["hello", "unknown"]); // true
 hasKeys(myObj, ["polo"]); // false
 ```
-
-## Related
-
-- [ts-array-fns](https://github.com/thomasraydeniscool/ts-array-fns) - Typesafe array utility functions

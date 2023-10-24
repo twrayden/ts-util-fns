@@ -1,5 +1,5 @@
 {
-  "name": "ts-object-fns",
+  "name": "ts-util-fns",
   "version": "0.2.3",
   "files": [
     "dist"
@@ -21,6 +21,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:thomasraydeniscool/ts-object-fns.git"
+    "url": "ssh://git@github.com:twrayden/ts-util-fns.git"
   }
 }
