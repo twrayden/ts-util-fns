@@ -23,6 +23,11 @@ export function visit<T extends object>(
 export function visit<T extends object>(
   obj: T,
   map: VisitMap<T>,
+  ignoreUndefined?: false
+): void;
+export function visit<T extends object>(
+  obj: T,
+  map: VisitMap<T>,
   ignoreUndefined = false
 ): void {
   return Object.keys(obj).forEach((key) => {
