@@ -1,5 +1,7 @@
-export type VisitMap<T extends object> = {
-  [K in keyof T]-?: (value: T[K]) => void;
+export type VisitMap<T extends object, E extends boolean = false> = {
+  [K in keyof T]-?: (
+    value: E extends true ? Exclude<T[K], undefined> : T[K]
+  ) => void;
 };
 
 /**
@@ -13,11 +15,22 @@ export type VisitMap<T extends object> = {
  * @param map - strict object map with a function per key
  * @returns void
  */
-export function visit<T extends object>(obj: T, map: VisitMap<T>): void {
+export function visit<T extends object>(
+  obj: T,
+  map: VisitMap<T, true>,
+  ignoreUndefined: true
+): void;
+export function visit<T extends object>(
+  obj: T,
+  map: VisitMap<T>,
+  ignoreUndefined = false
+): void {
   return Object.keys(obj).forEach((key) => {
-    const _key = key as keyof T;
-    if (!Object.hasOwnProperty.call(map, _key)) return;
-    map[_key](obj[_key]);
+    const k = key as keyof T;
+    if (!Object.hasOwnProperty.call(map, k)) return;
+    const value = obj[k];
+    if (ignoreUndefined && value === undefined) return;
+    map[k](value);
   });
 }
 
