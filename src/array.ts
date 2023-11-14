@@ -16,6 +16,10 @@ export function safeReverse<T>(arr: T[]): T[] {
   return arr.slice().reverse();
 }
 
+export function uniq<T>(arr: T[]) {
+  return Array.from(new Set(arr));
+}
+
 export function safeSplice<T>(
   arr: T[],
   index: number,
