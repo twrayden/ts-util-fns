@@ -76,8 +76,8 @@ export function trim<T extends object>(obj: T): Trimmed<T> {
  * @param obj - the target object
  * @returns target object is empty
  */
-export function isEmpty<T extends object>(obj: T) {
-  return Object.keys(obj).length === 0;
+export function isEmpty<T extends object>(obj: T, ignoreUndefined = true) {
+  return Object.keys(ignoreUndefined ? trim(obj) : obj).length === 0;
 }
 
 /**
